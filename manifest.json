@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AutoApply AI - 网申神器",
+  "version": "1.0",
+  "description": "基于 Kimi 大模型的智能网申填表助手",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://api.moonshot.cn/*",
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

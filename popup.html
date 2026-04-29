@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 350px; padding: 15px; margin: 0; background-color: #f8f9fa; color: #333; }
+    h3 { margin-top: 0; color: #222; font-size: 16px; border-bottom: 2px solid #007bff; padding-bottom: 5px; display: flex; justify-content: space-between; align-items: center;}
+    .version { font-size: 12px; font-weight: normal; color: #666; }
+    
+    label { font-size: 12px; color: #555; font-weight: bold; margin-bottom: 4px; display: block; }
+    input[type="text"], textarea, select { width: 100%; box-sizing: border-box; margin-bottom: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 13px; }
+    textarea { height: 80px; resize: vertical; }
+    
+    .btn-group { margin-bottom: 15px; }
+    button { width: 100%; padding: 10px; border: none; border-radius: 4px; font-weight: bold; font-size: 14px; cursor: pointer; transition: all 0.2s; margin-bottom: 8px; }
+    .btn-primary { background-color: #007bff; color: white; }
+    .btn-primary:hover { background-color: #0056b3; }
+    .btn-success { background-color: #28a745; color: white; box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3); }
+    .btn-success:hover { background-color: #218838; }
+    
+    /* 经验管理模块样式 */
+    .data-manager { background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #e9ecef; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .data-manager-title { font-size: 12px; font-weight: bold; color: #495057; margin-top: 0; margin-bottom: 8px; text-align: center; }
+    .flex-row { display: flex; gap: 8px; }
+    .btn-secondary { background-color: #f1f3f5; color: #495057; border: 1px solid #ced4da; padding: 8px; font-size: 12px; margin-bottom: 0; }
+    .btn-secondary:hover { background-color: #e2e6ea; }
+
+    #status { font-size: 12px; color: #d9534f; text-align: center; min-height: 16px; margin-top: 8px; font-weight: bold;}
+  </style>
+</head>
+<body>
+  <h3>🚀 AutoApply AI <span class="version">Pro Plus</span></h3>
+  
+  <!-- 新增的平台选择下拉框 -->
+  <label for="aiPlatform">选择 AI 模型平台</label>
+  <select id="aiPlatform">
+    <option value="kimi">Kimi (Moonshot)</option>
+    <option value="deepseek">DeepSeek (深度求索)</option>
+    <option value="openai">OpenAI (ChatGPT)</option>
+    <option value="siliconflow">硅基流动 (SiliconFlow 免费版)</option>
+  </select>
+
+  <label for="apiKey">填入对应平台的 API Key</label>
+  <input type="text" id="apiKey" placeholder="sk-xxxxxxxxxxxxxxxxxxx">
+  
+  <label for="resumeText">我的中文简历 (纯文本/Markdown)</label>
+  <textarea id="resumeText" placeholder="在此粘贴中文简历..."></textarea>
+
+  <label for="resumeTextEn">我的英文简历 (外企专用，选填)</label>
+  <textarea id="resumeTextEn" placeholder="在此粘贴英文简历..."></textarea>
+  
+  <div class="btn-group">
+    <button id="saveBtn" class="btn-primary">💾 保存配置</button>
+    <button id="fillBtn" class="btn-success">✨ 智能填充当前页面</button>
+  </div>
+  
+  <div class="data-manager">
+    <p class="data-manager-title">📦 个人专属网申题库管理</p>
+    <div class="flex-row">
+      <button id="exportBtn" class="btn-secondary" title="导出为Excel可编辑的CSV表格">⬇️ 导出经验(CSV)</button>
+      <button id="importBtn" class="btn-secondary" title="从CSV表格导入更新题库">⬆️ 导入更新(CSV)</button>
+      <input type="file" id="fileInput" accept=".csv" style="display: none;">
+    </div>
+  </div>
+
+  <div id="status"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
